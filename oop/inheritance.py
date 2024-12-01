@@ -156,25 +156,80 @@ obj = A()
 Проблема перекрестного наследования (не решена)
 """
 
-class A:
-    a = 'a'
+# class A:
+#     a = 'a'
 
 
-class B:
-    b = 'b'
+# class B:
+#     b = 'b'
 
 
-class D(A, B):
-    ...
+# class D(A, B):
+#     ...
 
 
-class E(B, A):
-    ...
+# class E(B, A):
+#     ...
 
-class F(D, E):
-    ...
+# class F(D, E):
+#     ...
 
-obj_f = F()
-print(obj_f.a)
+# obj_f = F()
+# print(obj_f.a)
 # TypeError: Cannot create a consistent method resolution
 # order (MRO) for bases A, B
+
+
+"=============================================Mixin=========================================="
+"""
+Миксины - классы помощники, которые будут использоваться для наследования, но от них не создаются объекты
+"""
+
+# CRUD - Create Read Update Delete
+
+
+class CreateMixin:
+    def create(self):
+        ...
+    
+class DatabaseCreate(CreateMixin):
+    def create(self):
+        ...
+
+class FileCreate(CreateMixin):
+    def create(self):
+        ...
+
+
+# class ReadMixin:
+#     def read(self):
+#         return 'Я показываю товар'
+
+
+# class UpdateMixin:
+#     def update(self):
+#         return 'Я обновляю товар'
+    
+
+# class DeleteMixin:
+#     def delete(self):
+#         return 'Я удаляю товар'
+    
+
+# class Product:
+#     ...
+
+
+# class Payment(CreateMixin,
+#               ReadMixin,
+#               UpdateMixin,
+#               DeleteMixin):
+#     ...
+    
+
+# obj_product = Product()
+# print(obj_product.create())
+# print(obj_product.read())
+
+# class Category():
+#     ...
